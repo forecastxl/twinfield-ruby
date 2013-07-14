@@ -32,13 +32,12 @@ module Twinfield
 
     # Main action, call with FinderSearch object
     def search(search_object)
-      request(:search, search_object)
+      request(:search, search_object.to_xml)
     end
 
     def request(action, data)
       if actions.include?(action)
         if @session.connected?
-          data = search_object.to_xml
           @response = @session.request(self, @client, action, data)
         else
           "Session connection error"
