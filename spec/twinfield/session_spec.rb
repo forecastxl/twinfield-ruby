@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe Twinfield::Session do
+describe Twinfield::LoginSession do
   describe "successful logon" do
 
     before(:all) do
       conf = Twinfield::Configuration.new('xxx', 'xxx', 'xxx')
-      @session = Twinfield::Session.new(conf)
+      @session = Twinfield::LoginSession.new(conf)
       @session.logon
     end
 
@@ -39,7 +39,7 @@ describe Twinfield::Session do
     before(:all) do
       conf = Twinfield::Configuration.new('test', 'test', 'TEST')
       
-      @session = Twinfield::Session.new(conf)
+      @session = Twinfield::LoginSession.new(conf)
       @session.logon
     end
 

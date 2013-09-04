@@ -4,7 +4,8 @@ require "savon"
 module Twinfield
   
   WSDLS = {
-    :session => "https://login.twinfield.com/webservices/session.asmx?wsdl",
+    :login_session => "https://login.twinfield.com/webservices/session.asmx?wsdl",
+    :session => "/webservices/session.asmx?wsdl",
     :process => "/webservices/processxml.asmx?wsdl",
     :finder => "/webservices/finder.asmx?wsdl"
   }
@@ -28,6 +29,7 @@ module Twinfield
 end
 
 require "twinfield/configuration"
+require "twinfield/login_session"
 require "twinfield/session"
 require "twinfield/process"
 require "twinfield/finder"
