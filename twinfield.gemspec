@@ -1,6 +1,7 @@
 # -*- encoding: utf-8 -*-
-$:.push File.expand_path("../lib", __FILE__)
-require "twinfield/version"
+# $:.push File.expand_path("../lib", __FILE__)
+# require "twinfield/version"
+require File.expand_path('../lib/twinfield/version', __FILE__)
 
 Gem::Specification.new do |s|
   s.name        = "twinfield"
@@ -11,9 +12,9 @@ Gem::Specification.new do |s|
   s.summary     = "A simple client for the Twinfield SOAP-based API"
   s.description = "Twinfield is an international Web service for collaborative online accounting. The Twinfield gem is a simple client for their SOAP-based API."
 
-  s.files         = `git ls-files`.split("\n")
-  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+  s.files         = Dir["{lib}/**/*.rb", "bin/*", "LICENSE", "*.md"]
+  s.test_files    = s.files.grep(%r{^(test|spec|features)/})
+  s.executables   = s.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
   s.add_runtime_dependency 'savon', '~> 2.3.0'
