@@ -55,6 +55,6 @@ module Twinfield
       @client.operations
     end
 
-    
+
   end
 end

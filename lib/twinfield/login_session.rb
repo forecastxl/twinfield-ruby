@@ -6,7 +6,7 @@ module Twinfield
 
     def initialize(configuration)
       @configuration = configuration
-      
+
       @client = Savon.client(
         wsdl: Twinfield::WSDLS[:login_session],
         convert_request_keys_to: :camelcase
@@ -44,7 +44,9 @@ module Twinfield
         @session_id = response.header[:header][:session_id]
         @cluster = response.body[:logon_response][:cluster]
       else
-        @message = "Error connecting to Twinfield"
+
+        @message = "Error connecting to Twinfield: Credentials #{response.body[:logon_response][:logon_result]}"
+
         unless response.body[:fault].nil?
           # Error during logon
           @message = response.body[:fault][:faultstring].to_s
@@ -58,7 +60,7 @@ module Twinfield
       begin
         client.call(action.to_sym, message: data)
       rescue Savon::SOAPFault => e
-        if (Regexp.new(Twinfield::ERRORS[103]) =~ e.message || 
+        if (Regexp.new(Twinfield::ERRORS[103]) =~ e.message ||
             Regexp.new(Twinfield::ERRORS[168]) =~ e.message)
           # Invalid session or Connected from other client: reconnect
           reconnect
