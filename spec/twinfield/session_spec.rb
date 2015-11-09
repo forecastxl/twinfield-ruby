@@ -4,7 +4,7 @@ describe Twinfield::LoginSession do
   describe "successful logon" do
 
     before(:all) do
-      conf = Twinfield::Configuration.new('xxx', 'xxx', 'xxx')
+      conf = Twinfield::Configuration.new('xxx', 'xxx', 'xxx', 'xxx')
       @session = Twinfield::LoginSession.new(conf)
       @session.logon
     end
@@ -37,8 +37,8 @@ describe Twinfield::LoginSession do
   describe "invalid logon" do
 
     before(:all) do
-      conf = Twinfield::Configuration.new('test', 'test', 'TEST')
-      
+      conf = Twinfield::Configuration.new('test', 'test', 'TEST', 'test')
+
       @session = Twinfield::LoginSession.new(conf)
       @session.logon
     end
