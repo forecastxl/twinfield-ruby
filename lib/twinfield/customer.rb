@@ -27,13 +27,7 @@ module Twinfield
     end
 
     # Create new customer with xml
-    def create(xml)
-      Twinfield::Process.new(@session).request(:process_xml_document, xml)
-    end
-
-    def update(xml, twinfield_customer_code)
-      raise "Provide customer_code as second argument" unless twinfield_customer_code
-
+    def sync(xml)
       Twinfield::Process.new(@session).request(:process_xml_document, xml)
     end
 

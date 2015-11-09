@@ -12,17 +12,10 @@ module Twinfield
       Twinfield::Finder.new(@session).search(Twinfield::FinderSearch.new('IVT', '*', 0, 1, 0)).body[:search_response][:data]
     end
 
-    def create(xml)
+    def sync(xml)
       Twinfield::Process.new(@session).request(:process_xml_document, xml).body[:process_xml_document_response][:process_xml_document_result]
     end
 
-    def update(xml)
-      Twinfield::Process.new(@session).request(:process_xml_document, xml).body[:process_xml_document_response][:process_xml_document_result]
-    end
-
-    # def create_from_forecastxl_invoice(invoice, reseller = nil)
-    #   Twinfield::Process.new(@session).request(:process_xml_document, xml).body[:process_xml_document_response][:process_xml_document_result]
-    # end
     def find_by_invoice_number(invoicenumber)
       Twinfield::Process.new(@session).request(:process_xml_document, get_dimension_xml(@company, { invoicenumber: invoicenumber })).body[:process_xml_document_response][:process_xml_document_result]
     end
