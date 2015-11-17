@@ -28,7 +28,7 @@ module Twinfield
 
     # Create new customer with xml
     def sync(xml)
-      Twinfield::Process.new(@session).request(:process_xml_document, xml)
+      Twinfield::Process.new(@session).request(:process_xml_document, xml).body[:process_xml_document_response][:process_xml_document_result]
     end
 
     # The request for getting all elements in a Twinfield dimension
