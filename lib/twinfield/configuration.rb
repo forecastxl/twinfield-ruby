@@ -4,11 +4,13 @@ module Twinfield
     attr_accessor :username
     attr_accessor :password
     attr_accessor :organisation
+    attr_accessor :company
 
-    def initialize(username, password, organisation)
+    def initialize(username, password, organisation, company)
       @username = username
       @password = password
       @organisation = organisation
+      @company = company
     end
 
     def to_hash
