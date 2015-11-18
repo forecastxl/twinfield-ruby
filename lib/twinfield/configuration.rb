@@ -6,7 +6,7 @@ module Twinfield
     attr_accessor :organisation
     attr_accessor :company
 
-    def initialize(username, password, organisation, company)
+    def initialize(username, password, organisation, company = nil)
       @username = username
       @password = password
       @organisation = organisation
@@ -21,5 +21,4 @@ module Twinfield
       }
     end
   end
-
 end
