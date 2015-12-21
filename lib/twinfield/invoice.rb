@@ -9,7 +9,7 @@ module Twinfield
     end
 
     def all
-      Twinfield::Finder.new(@session).search(Twinfield::FinderSearch.new('IVT', '*', 0, 1, 0)).body[:search_response][:data]
+      Twinfield::Finder.new(@session).search(Twinfield::FinderSearch.new('IVT', '*', 0, 1, 0, { office: @company })).body[:search_response][:data]
     end
 
     def sync(xml)
@@ -21,7 +21,7 @@ module Twinfield
     end
 
     def find_by_customer_code(customer)
-      Twinfield::Finder.new(@session).search(Twinfield::FinderSearch.new('IVT', customer, 0, 1, 0)).body[:search_response][:data]
+      Twinfield::Finder.new(@session).search(Twinfield::FinderSearch.new('IVT', customer, 0, 1, 0, { office: @company })).body[:search_response][:data]
     end
 
     # Check if invoices are paid
@@ -49,7 +49,7 @@ module Twinfield
     end
 
     def find_all_unpaid_invoices
-      Twinfield::Finder.new(@session).search(Twinfield::FinderSearch.new('IVT', '*', 0, 1, 0)).body[:search_response][:data][:items][:array_of_string]
+      Twinfield::Finder.new(@session).search(Twinfield::FinderSearch.new('IVT', '*', 0, 1, 0, { office: @company })).body[:search_response][:data][:items][:array_of_string]
     end
 
 

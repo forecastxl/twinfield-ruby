@@ -23,7 +23,7 @@ module Twinfield
 
     # Find customer by name
     def find_by_name(name)
-      Twinfield::Finder.new(@session).search(Twinfield::FinderSearch.new('DIM', name, 0, 1, 0, { dimtype: 'DEB'} )).body[:search_response][:data]
+      Twinfield::Finder.new(@session).search(Twinfield::FinderSearch.new('DIM', name, 0, 1, 0, { office: @company, dimtype: 'DEB'} )).body[:search_response][:data]
     end
 
     # Create new customer with xml
