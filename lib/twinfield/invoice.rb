@@ -31,7 +31,7 @@ module Twinfield
       invoice = Twinfield::Process.new(@session).request(:process_xml_document, get_dimension_xml(@company, { invoicenumber: invoicenumber })).body[:process_xml_document_response][:process_xml_document_result]
 
       # Find corresponding transaction
-      transaction = Twinfield::Invoice.new.find_transaction(invoice[:salesinvoice][:financials][:number])
+      transaction = Twinfield::Invoice.new(TWINFIELD_CONFIGURATION).find_transaction(invoice[:salesinvoice][:financials][:number])
 
       begin
         if transaction && transaction[:transaction][:lines][:line].first[:matchstatus].eql?('matched')
