@@ -7,7 +7,8 @@ module Twinfield
     :login_session => "https://login.twinfield.com/webservices/session.asmx?wsdl",
     :session => "/webservices/session.asmx?wsdl",
     :process => "/webservices/processxml.asmx?wsdl",
-    :finder => "/webservices/finder.asmx?wsdl"
+    :finder => "/webservices/finder.asmx?wsdl",
+    :period_service => "/webservices/PeriodService.svc?wsdl"
   }
 
   # Outdated?
@@ -37,3 +38,4 @@ require "twinfield/finder_search"
 require "twinfield/version"
 require "twinfield/customer"
 require "twinfield/invoice"
+require "twinfield/period_service"
