@@ -1,10 +1,9 @@
 module Twinfield
   class PeriodService
 
-    def initialize(configuration)
-      @session = Twinfield::LoginSession.new(configuration)
-      @session.logon
-      setup(@session)
+    def initialize(session)
+      @session = session
+      setup session
     end
 
     def setup(session)
