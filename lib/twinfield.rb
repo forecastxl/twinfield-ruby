@@ -1,4 +1,3 @@
-# require 'twinfield/nokogiri'
 require 'savon'
 
 module Twinfield
@@ -33,7 +32,6 @@ require 'twinfield/session'
 require 'twinfield/process'
 require 'twinfield/finder'
 require 'twinfield/finder_search'
-require 'twinfield/version'
 require 'twinfield/customer'
 require 'twinfield/invoice'
 require 'twinfield/period_service'
