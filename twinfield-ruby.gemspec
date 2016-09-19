@@ -2,6 +2,7 @@
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'twinfield/version'
+require 'twinfield'
 require 'twinfield/configuration'
 require 'twinfield/login_session'
 require 'twinfield/session'
