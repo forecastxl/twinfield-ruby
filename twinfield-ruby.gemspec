@@ -1,5 +1,6 @@
 # -*- encoding: utf-8 -*-
-require File.expand_path("../lib/twinfield/version", __FILE__)
+require File.expand_path('../lib/twinfield/version', __FILE__)
+require 'twinfield'
 
 Gem::Specification.new do |spec|
   spec.name        = 'twinfield-ruby'

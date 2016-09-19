@@ -1,43 +1,39 @@
-Op te lossen problemen tov vorige Twinfield lib:
+# Installation
 
-* Vaak uitgelogd door user op andere pc/applicatie
-* Mogelijkheid tot reconnect als dat gebeurt
-* Session_id wordt niet gedeeld door de verschillende Twinfield services => invalid session_id
-* Globale twinfield settings, niet handig voor multi user app
-* Afsluiten van sessie met session.abandon <= werkt blijkbaar niet meer?
+```ruby
+gem 'twinfield-ruby'
+```
 
-Maak configuration object met connectie settings:
-  
-  conf = Twinfield::Configuration.new(username, password, organisation, office?)
+# Usage
 
-Doe Twinfield request
-  
-  request = Twinfield::Process.search(conf, params)
+Create a configuration instance you can use in requests. The last argument is optional.
 
-Of, maak session en voer dan request op sessie uit
-  session = Twinfield::Session.new(conf)
-  session.service(:process).action(:search, params)
-of
-  session = Twinfield::Session.new(conf)
-  process = Twinfield::Process.new(session)
-  process.search(params) / process.request(action, params)
+```ruby
+config = Twinfield::Configuration.new(username, password, organisation, office)
+```
 
+The configuration can be used create a new Process.
 
-  session = Session.new(conf)
-  service = Process.new(session)
-  service.request(action, parameters)
-    session.get_token
-    client = Savon.new(init)
-    client.request(action, parameters)
+```ruby
+process = Twinfield::Process.new(config)
+```
 
+Or you can use it to create a new Session.
 
-  session = Session.new(username, password, organisation)
-  Twinfield::Process.request(session, action, data)
-    session gebruiken om nieuw savon object te maken en call te doen
+```ruby
+session = Twinfield::Session.new(config)
+```
 
+With the Process you can execute requests.
 
-  session = Session.new(username, password, organisation)
-  session.service(:finder).request(action, data) of
-  session.service(:finder).action(data)
-      lookup finder object, create if missing
-  
+```ruby
+process.search(params)
+process.request(action, params)
+
+```
+
+Or with the Session.
+
+```ruby
+session.service(:process).action(:search, params)
+```
