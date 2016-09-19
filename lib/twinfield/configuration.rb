@@ -1,5 +1,4 @@
 module Twinfield
-
   class Configuration
     attr_accessor :username
     attr_accessor :password
@@ -15,9 +14,9 @@ module Twinfield
 
     def to_hash
       {
-        "user" => @username,
-        "password" => @password,
-        "organisation" => @organisation
+        'user' => @username,
+        'password' => @password,
+        'organisation' => @organisation
       }
     end
   end

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    twinfield (0.0.7.1)
+    twinfield-ruby (0.0.7.1)
       savon
 
 GEM
@@ -11,35 +11,38 @@ GEM
       gyoku (>= 0.4.0)
       nokogiri
     builder (3.2.2)
-    coderay (1.1.0)
+    coderay (1.1.1)
     diff-lcs (1.2.5)
     gyoku (1.3.1)
       builder (>= 2.1.2)
-    httpi (2.4.1)
+    httpi (2.4.2)
       rack
+      socksify
     method_source (0.8.2)
-    mini_portile2 (2.0.0)
-    nokogiri (1.6.7.2)
-      mini_portile2 (~> 2.0.0.rc2)
+    mini_portile2 (2.1.0)
+    nokogiri (1.6.8)
+      mini_portile2 (~> 2.1.0)
+      pkg-config (~> 1.1.7)
     nori (2.6.0)
-    pry (0.10.3)
+    pkg-config (1.1.7)
+    pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    rack (1.6.4)
-    rspec (3.4.0)
-      rspec-core (~> 3.4.0)
-      rspec-expectations (~> 3.4.0)
-      rspec-mocks (~> 3.4.0)
-    rspec-core (3.4.1)
-      rspec-support (~> 3.4.0)
-    rspec-expectations (3.4.0)
+    rack (2.0.1)
+    rspec (3.5.0)
+      rspec-core (~> 3.5.0)
+      rspec-expectations (~> 3.5.0)
+      rspec-mocks (~> 3.5.0)
+    rspec-core (3.5.3)
+      rspec-support (~> 3.5.0)
+    rspec-expectations (3.5.0)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.4.0)
-    rspec-mocks (3.4.0)
+      rspec-support (~> 3.5.0)
+    rspec-mocks (3.5.0)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.4.0)
-    rspec-support (3.4.1)
+      rspec-support (~> 3.5.0)
+    rspec-support (3.5.0)
     savon (2.11.1)
       akami (~> 1.2)
       builder (>= 2.1.2)
@@ -49,6 +52,7 @@ GEM
       nori (~> 2.4)
       wasabi (~> 3.4)
     slop (3.6.0)
+    socksify (1.7.0)
     wasabi (3.5.0)
       httpi (~> 2.0)
       nokogiri (>= 1.4.2)
@@ -59,7 +63,7 @@ PLATFORMS
 DEPENDENCIES
   pry
   rspec
-  twinfield!
+  twinfield-ruby!
 
 BUNDLED WITH
-   1.11.2
+   1.13.1

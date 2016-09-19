@@ -1,7 +1,8 @@
 module Twinfield
   class FinderSearch
     # All finder types
-    TYPES = %w(ART ASM BDS CDA COL CTR CUR DIM DMT DVT FLT FMT GRP HIE HND INV IVT MAT OFF OFG OIC PAY PTY REP REW RMD ROL SMP SPM SPP TEQ TRS TRT USR VAT VGM XLT)
+    TYPES = %w(ART ASM BDS CDA COL CTR CUR DIM DMT DVT FLT FMT GRP HIE HND INV IVT MAT OFF OFG OIC
+               PAY PTY REP REW RMD ROL SMP SPM SPP TEQ TRS TRT USR VAT VGM XLT)
 
     OPTIONS = {
       '' => { 'office' => nil },
@@ -11,7 +12,7 @@ module Twinfield
 
     attr_accessor :type, :pattern, :fields, :first_row, :max_rows, :options
 
-    def initialize(type, pattern, fields, first_row=1, max_rows=0, options={})
+    def initialize(type, pattern, fields, first_row = 1, max_rows = 0, options = {})
       @type = type
       @pattern = pattern
       @fields = fields
@@ -43,9 +44,8 @@ module Twinfield
 #{options_to_xml_string(@options)}\
 </tns:options>"
       end
-      
+
       payload
     end
-
   end
 end

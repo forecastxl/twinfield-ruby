@@ -1,6 +1,6 @@
 module Twinfield
   class Session
-    
+
     def initialize(session)
       @session = session
       setup session
@@ -11,9 +11,9 @@ module Twinfield
         wsdl: "#{session.cluster}#{Twinfield::WSDLS[:session]}",
         convert_request_keys_to: :camelcase,
         soap_header: {
-          "Header" => {"SessionID" => session.session_id},
+          'Header' => { 'SessionID' => session.session_id },
           :attributes! => {
-            "Header" => {:xmlns => "http://www.twinfield.com/"}
+            'Header' => { xmlns: 'http://www.twinfield.com/'}
           }
         }
       )
@@ -29,10 +29,10 @@ module Twinfield
         if @session.connected?
           @response = @session.request(self, @client, action, data)
         else
-          "Session connection error"
+          'Session connection error'
         end
       else
-        "Action not found"
+        'Action not found'
       end
     end
 
@@ -43,6 +43,5 @@ module Twinfield
     def actions
       @client.operations
     end
-
   end
 end

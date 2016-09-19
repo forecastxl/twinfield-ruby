@@ -1,5 +1,4 @@
 module Twinfield
-
   # Session to be re-used on configuration basis
   class LoginSession
     attr_accessor :configuration, :session_id, :cluster
@@ -40,7 +39,7 @@ module Twinfield
       data = @configuration.to_hash
       response = @client.call(:logon, message: data)
 
-      if response.body[:logon_response][:logon_result] == "Ok"
+      if response.body[:logon_response][:logon_result] == 'Ok'
         @session_id = response.header[:header][:session_id]
         @cluster = response.body[:logon_response][:cluster]
       else
@@ -70,6 +69,5 @@ module Twinfield
         end
       end
     end
-
   end
 end

@@ -1,6 +1,5 @@
 module Twinfield
   class PeriodService
-
     def initialize(session)
       @session = session
       setup session
@@ -11,9 +10,9 @@ module Twinfield
         wsdl: "#{session.cluster}#{Twinfield::WSDLS[:period_service]}",
         convert_request_keys_to: :camelcase,
         soap_header: {
-          "Header" => {"SessionID" => session.session_id},
+          'Header' => {'SessionID' => session.session_id},
           :attributes! => {
-            "Header" => {:xmlns => "http://www.twinfield.com/"}
+            'Header' => { xmlns: 'http://www.twinfield.com/' }
           }
         }
       )
@@ -32,6 +31,7 @@ module Twinfield
            </soapenv:Body>
         </soapenv:Envelope>
       |
+
       @client.call(:query, xml: xml)
     end
   end
